@@ -1,0 +1,18 @@
+{
+  "announcements": [
+    {
+      "id": 1,
+      "timestamp": "2025-08-09T23:07:00Z",
+      "message": "New feature released: Dark mode is now available!"
+    },
+    {
+      "id": 2,
+      "timestamp": "2025-08-08T12:00:00Z",
+      "message": "Scheduled update: Improved performance for notifications."
+    }
+  ],
+  "maintenance": {
+    "timestamp": "2025-08-10T02:00:00Z",
+    "message": "Scheduled maintenance: Server downtime expected from 2:00 AM to 4:00 AM UTC."
+  }
+}
