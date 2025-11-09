@@ -58,7 +58,7 @@
     .news-banner {
       background-color: #ffd966;
       color: #333;
-      padding: 12px 20px;
+      padding: 12px 60px 12px 20px;
       text-align: center;
       position: relative;
       font-size: 16px;
@@ -71,7 +71,7 @@
     
     .news-banner-close {
       position: absolute;
-      right: 20px;
+      right: 10px;
       top: 50%;
       transform: translateY(-50%);
       background: none;
@@ -84,6 +84,7 @@
       height: 30px;
       line-height: 1;
       opacity: 0.7;
+      flex-shrink: 0;
     }
     
     .news-banner-close:hover {
@@ -92,6 +93,21 @@
     
     .news-banner.hidden {
       display: none;
+    }
+    
+    /* Mobile adjustments for news banner */
+    @media (max-width: 576px) {
+      .news-banner {
+        padding: 12px 50px 12px 15px;
+        font-size: 14px;
+      }
+      
+      .news-banner-close {
+        right: 5px;
+        font-size: 20px;
+        width: 25px;
+        height: 25px;
+      }
     }
   </style>
 
@@ -112,7 +128,7 @@
 <body id="top">
   <!-- News Banner -->
   <div id="newsBanner" class="news-banner">
-    <strong>NEWS:</strong> We are aware of the current issue with slow or missing searches. Thanks for your patience, and please reach out to us with any questions. Thanks!
+    <strong>NEWS:</strong> We are aware of the current issue with slow searches. Thanks for your patience, and please reach out to us with any questions. Thanks!
     <button class="news-banner-close" onclick="dismissBanner()" aria-label="Dismiss banner">&times;</button>
   </div>
 
@@ -341,12 +357,6 @@
   <!-- News Banner Script -->
   <script>
     function dismissBanner() {
-      document.getElementById('newsBanner').classList.add('hidden');
-      localStorage.setItem('newsBannerDismissed', 'true');
-    }
-    
-    // Check if banner was previously dismissed
-    if (localStorage.getItem('newsBannerDismissed') === 'true') {
       document.getElementById('newsBanner').classList.add('hidden');
     }
   </script>
