@@ -53,6 +53,46 @@
       display: block
     }
   }
+
+    /* News Banner Styles */
+    .news-banner {
+      background-color: #ffd966;
+      color: #333;
+      padding: 12px 20px;
+      text-align: center;
+      position: relative;
+      font-size: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .news-banner strong {
+      color: #cc5500;
+    }
+    
+    .news-banner-close {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      line-height: 1;
+      opacity: 0.7;
+    }
+    
+    .news-banner-close:hover {
+      opacity: 1;
+    }
+    
+    .news-banner.hidden {
+      display: none;
+    }
   </style>
 
 
@@ -69,7 +109,13 @@
   <!-- End Twitter conversion tracking base code -->
 </head>
 
-<body id="top"></body>
+<body id="top">
+  <!-- News Banner -->
+  <div id="newsBanner" class="news-banner">
+    <strong>NEWS:</strong> We are aware of the current issue with slow or missing searches. Thanks for your patience, and please reach out to us with any questions. Thanks!
+    <button class="news-banner-close" onclick="dismissBanner()" aria-label="Dismiss banner">&times;</button>
+  </div>
+
   <header>
     <div class="aa-header">
       <nav class="navbar navbar-expand-md navbar-transparent">
@@ -291,6 +337,19 @@
   <script src="scripts/bootstrap.min.js?ver=1.1.0"></script>
   <script src="scripts/paper-kit.js?ver=1.1.0"></script>
   <script src="scripts/main.js?ver=1.1.0"></script>
+  
+  <!-- News Banner Script -->
+  <script>
+    function dismissBanner() {
+      document.getElementById('newsBanner').classList.add('hidden');
+      localStorage.setItem('newsBannerDismissed', 'true');
+    }
+    
+    // Check if banner was previously dismissed
+    if (localStorage.getItem('newsBannerDismissed') === 'true') {
+      document.getElementById('newsBanner').classList.add('hidden');
+    }
+  </script>
 </body>
 
 </html>
